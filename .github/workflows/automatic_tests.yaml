@@ -2,7 +2,7 @@ name: Automatic Tests On Open PR
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, edited]
 
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
         run: make dev
 
       - name: Run ruff
-        run: make ruff
+        run: ruff check
 
       - name: Run tests
-        run: make tests
+        run: coverage run -m pytest -v -s
