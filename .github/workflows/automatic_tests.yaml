@@ -18,6 +18,8 @@ jobs:
 
       - name: Prepare env
         run: make dev
+      - name: Activate venv
+        run: source .venv/bin/activate
 
       - name: Run ruff
         run: ruff check
