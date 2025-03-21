@@ -2,8 +2,7 @@ name: Automatic Tests On Open PR
 
 on:
   pull_request:
-    types: [opened, reopened, edited]
-
+    types: [opened, reopened, edited, synchronize]
 
 jobs:
   test:
@@ -13,14 +12,27 @@ jobs:
       - name: Checkout the files
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.1'
+
       - name: Install uv
         uses: astral-sh/setup-uv@v5
 
-      - name: Prepare env
-        run: make dev
+      - name: Install dependencies
+        run: |
+          uv venv --python 3.13.1
+          source .venv/bin/activate
+          uv sync --dev
 
       - name: Run ruff
-        run: ruff check
+        run: |
+          source .venv/bin/activate
+          ruff check
 
-      - name: Run tests
-        run: coverage run -m pytest -v -s
+      - name: Run tests with coverage
+        run: |
+          source .venv/bin/activate
+          coverage run -m pytest -v -s
+          coverage report 
