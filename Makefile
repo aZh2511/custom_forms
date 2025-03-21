@@ -6,7 +6,7 @@ install-requirements:
 
 dev:
 	- rm -rf .venv
-	- uv venv --python 3.13
+	- uv venv --python 3.13 --dev
 	- uv sync
 
 prod:
