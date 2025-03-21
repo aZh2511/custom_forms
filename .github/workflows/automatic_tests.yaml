@@ -2,7 +2,7 @@ name: Automatic Tests On Open PR
 
 on:
   pull_request:
-    types: [opened, reopened, edited]
+    types: [opened, reopened, synchronize]
 
 
 jobs:
