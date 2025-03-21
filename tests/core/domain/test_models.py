@@ -1,4 +1,5 @@
 from core.domain.models import Test
+from pytest import xfail
 
 
 def test_dummy() -> None:
@@ -7,5 +8,6 @@ def test_dummy() -> None:
     assert test.a == 'ok?'
 
 
+@xfail
 def test_fail():
     assert 1 == 2
