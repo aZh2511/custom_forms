@@ -18,5 +18,8 @@ class Form(Aggregate):
             title=title,
         )
 
+    def add_field(self, form_field: Field) -> None:
+        self.fields.add(form_field)
+
     def __str__(self) -> str:
         return self.title

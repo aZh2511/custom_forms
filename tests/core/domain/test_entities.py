@@ -21,3 +21,12 @@ def test_field_create_results_in_unique_forms() -> None:
     field2 = Field.create()
 
     assert field1 != field2
+
+
+def test_add_field_to_form(faker) -> None:
+    form = Form.create(title=faker.sentence())
+
+    some_field = Field.create()
+    form.add_field(some_field)
+
+    assert some_field in form.fields
