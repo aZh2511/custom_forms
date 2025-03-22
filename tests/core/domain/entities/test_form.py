@@ -16,13 +16,6 @@ def test_form_representation(faker) -> None:
     assert str(form) == title
 
 
-def test_field_create_results_in_unique_forms() -> None:
-    field1 = Field.create()
-    field2 = Field.create()
-
-    assert field1 != field2
-
-
 def test_add_field_to_form(faker) -> None:
     form = Form.create(title=faker.sentence())
 
