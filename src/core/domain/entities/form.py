@@ -2,6 +2,7 @@ from core.domain.entities.base import Aggregate
 from core.domain.value_objects import FormUUID
 from dataclasses import dataclass, field
 from core.domain.entities.field import Field
+from core.domain import exceptions
 
 
 # AggregateRoot
@@ -19,6 +20,8 @@ class Form(Aggregate):
         )
 
     def add_field(self, form_field: Field) -> None:
+        if form_field in self.fields:
+            raise exceptions.FormCanOnlyHaveUniqueFields()
         self.fields.add(form_field)
 
     def __str__(self) -> str:
