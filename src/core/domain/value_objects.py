@@ -10,3 +10,13 @@ class FieldUUID:
 @dataclass(frozen=True)
 class FormUUID:
     value: UUID = field(default_factory=uuid4)
+
+
+@dataclass(frozen=True)
+class FieldResponseUUID:
+    value: UUID = field(default_factory=uuid4)
+
+
+@dataclass(frozen=True)
+class FormResponseUUID:
+    value: UUID = field(default_factory=uuid4)
