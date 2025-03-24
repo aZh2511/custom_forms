@@ -16,3 +16,11 @@ class FormNotFound(NotFound):
 
 class FormDoesNotHaveAllRequiredFields(DomainError):
     pass
+
+
+class InvalidFormSubmission(DomainError):
+    pass
+
+
+class FormDoesNotHaveThisField(DomainError):
+    pass

@@ -1,5 +1,7 @@
+from typing import Any
+
 from core.domain.entities.base import Aggregate
-from core.domain.value_objects import FormUUID
+from core.domain.value_objects import FormUUID, FieldUUID
 from dataclasses import dataclass, field
 from core.domain.entities.field import Field
 from core.domain import exceptions
@@ -31,6 +33,15 @@ class Form(Aggregate):
                 continue
             required_fields.add(field)
         return required_fields
+
+    def _get_field(self, field_uuid: FieldUUID) -> Field | None:
+        return next(filter(lambda f: f.uuid == field_uuid, self.fields), None)
+
+    def is_valid_input_for_field(self, value: Any, field_uuid: FieldUUID) -> bool:
+        maybe_field = self._get_field(field_uuid)
+        if not maybe_field:
+            raise exceptions.FormDoesNotHaveThisField()
+        return maybe_field.is_valid(value)
 
     def __str__(self) -> str:
         return self.title
