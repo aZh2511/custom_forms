@@ -54,8 +54,8 @@ class FormResponse(Aggregate):
         return existing_response
 
     def has_all_required_fields(self, required_fields: set[FieldUUID]) -> bool:
-        for field in required_fields:
-            response = self.get_response(for_field=field)
+        for response_field in required_fields:
+            response = self.get_response(for_field=response_field)
             if not response:
                 return False
         return True
