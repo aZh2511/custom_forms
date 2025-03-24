@@ -28,10 +28,10 @@ class Form(Aggregate):
 
     def get_required_fields(self) -> set[Field]:
         required_fields = set()
-        for field in self.fields:
-            if not field.is_required:
+        for form_field in self.fields:
+            if not form_field.is_required:
                 continue
-            required_fields.add(field)
+            required_fields.add(form_field)
         return required_fields
 
     def _get_field(self, field_uuid: FieldUUID) -> Field | None:
