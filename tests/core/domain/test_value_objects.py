@@ -1,4 +1,9 @@
-from core.domain.value_objects import FieldUUID, FormUUID, FieldResponseUUID, FormResponseUUID
+from core.domain.value_objects import (
+    FieldUUID,
+    FormUUID,
+    FieldResponseUUID,
+    FormResponseUUID,
+)
 
 
 def test_field_uuid_is_unique() -> None:

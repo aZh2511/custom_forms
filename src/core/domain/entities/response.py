@@ -1,5 +1,10 @@
 from core.domain.entities.base import Entity, Aggregate
-from core.domain.value_objects import FormUUID, FieldUUID, FieldResponseUUID, FormResponseUUID
+from core.domain.value_objects import (
+    FormUUID,
+    FieldUUID,
+    FieldResponseUUID,
+    FormResponseUUID,
+)
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -44,8 +49,7 @@ class FormResponse(Aggregate):
 
     def get_response(self, for_field: FieldUUID) -> FieldResponse | None:
         existing_response = next(
-            filter(lambda r: r.field_uuid == for_field, self.field_responses),
-            None
+            filter(lambda r: r.field_uuid == for_field, self.field_responses), None
         )
         return existing_response
 

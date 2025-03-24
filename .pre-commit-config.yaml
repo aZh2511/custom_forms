@@ -17,13 +17,3 @@ repos:
     rev: v1.30.2
     hooks:
       - id: typos
-
-  # Pytest
-  - repo: local
-    hooks:
-      - id: tests
-        name: run tests
-        entry: pytest -v tests/
-        language: system
-        types: [ python ]
-        stages: [ push ]

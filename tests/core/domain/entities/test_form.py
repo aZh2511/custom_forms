@@ -46,7 +46,6 @@ def test_required_fields_for_empty_form_are_also_empty(form, faker) -> None:
     assert required_fields == set()
 
 
-
 def test_required_fields_returns_only_required_fields(form, faker) -> None:
     required_field = Field.create()
     required_field.mark_required()
@@ -57,4 +56,6 @@ def test_required_fields_returns_only_required_fields(form, faker) -> None:
 
     required_fields = form.get_required_fields()
 
-    assert required_fields == {required_field,}
+    assert required_fields == {
+        required_field,
+    }

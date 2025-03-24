@@ -47,7 +47,6 @@ class Field(Entity):
         return hash(self.uuid)
 
 
-
 class BooleanField(Field):
     type: FieldType = FieldType.BOOLEAN
 

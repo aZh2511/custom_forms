@@ -15,8 +15,9 @@ def service(repository) -> SubmitFormService:
 @pytest.fixture
 def existing_form(repository, faker) -> Form:
     form = Form.create(title=faker.sentence())
-    repository.add('form', form)
+    repository.add("form", form)
     return form
+
 
 def test_if_form_does_not_exist_submission_fails(service) -> None:
     unknown_form_uuid = FormUUID()
@@ -26,7 +27,9 @@ def test_if_form_does_not_exist_submission_fails(service) -> None:
         service.submit(response_for_unknown_form)
 
 
-def test_if_form_does_not_have_all_required_fields_submission_fails(service, existing_form) -> None:
+def test_if_form_does_not_have_all_required_fields_submission_fails(
+    service, existing_form
+) -> None:
     field1 = Field.create()
     field1.mark_required()
     existing_form.add_field(field1)
@@ -47,7 +50,7 @@ def test_invalid_inputs_are_not_accepted(service, existing_form) -> None:
     existing_form.add_field(field1)
 
     response = FormResponse.create(for_form_uuid=existing_form.uuid)
-    field_response = FieldResponse.create(value='invalid', for_field=field1.uuid)
+    field_response = FieldResponse.create(value="invalid", for_field=field1.uuid)
     response.add_field_response(field_response)
 
     with pytest.raises(exceptions.InvalidFormSubmission):

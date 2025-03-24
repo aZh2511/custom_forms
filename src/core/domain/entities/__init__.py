@@ -4,9 +4,9 @@ from .response import FormResponse, FieldResponse
 
 
 __all__ = [
-    'Field',
-    'Form',
-    'FormResponse',
-    'FieldResponse',
-    'BooleanField',
+    "Field",
+    "Form",
+    "FormResponse",
+    "FieldResponse",
+    "BooleanField",
 ]

@@ -1,4 +1,4 @@
-from core.domain.entities import Form, FormResponse
+from core.domain.entities import FormResponse
 from core.domain.repositories import Repository
 from core.domain import exceptions
 
@@ -18,7 +18,9 @@ class SubmitFormService:
             raise exceptions.FormDoesNotHaveAllRequiredFields
 
         for field_response in response.field_responses:
-            is_valid = form.is_valid_input_for_field(field_response.value, field_response.field_uuid)
+            is_valid = form.is_valid_input_for_field(
+                field_response.value, field_response.field_uuid
+            )
             if not is_valid:
                 raise exceptions.InvalidFormSubmission()
 
