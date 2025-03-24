@@ -24,5 +24,13 @@ class Form(Aggregate):
             raise exceptions.FormCanOnlyHaveUniqueFields()
         self.fields.add(form_field)
 
+    def get_required_fields(self) -> set[Field]:
+        required_fields = set()
+        for field in self.fields:
+            if not field.is_required:
+                continue
+            required_fields.add(field)
+        return required_fields
+
     def __str__(self) -> str:
         return self.title
