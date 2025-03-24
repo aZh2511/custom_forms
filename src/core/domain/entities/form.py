@@ -34,3 +34,6 @@ class Form(Aggregate):
 
     def __str__(self) -> str:
         return self.title
+
+    def __hash__(self) -> int:
+        return hash(self.uuid)

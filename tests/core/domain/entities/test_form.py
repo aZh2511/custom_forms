@@ -1,6 +1,7 @@
 import pytest
 
-from core.domain.entities import Field, Form
+from core.domain.entities import Form
+from core.domain.entities import BooleanField as Field
 from core.domain.exceptions import FormCanOnlyHaveUniqueFields
 
 
