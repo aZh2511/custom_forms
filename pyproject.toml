@@ -15,3 +15,20 @@ dev = [
     "pytest>=8.3.5",
     "ruff>=0.7.3",
 ]
+
+[tool.pytest.ini_options]
+python_files = "test*.py"
+pythonpath = "src"
+looponfailroots = [
+    "src",
+    "tests"
+]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+precision = 2
+exclude_lines = [
+    "raise NotImplementedError",
+]
