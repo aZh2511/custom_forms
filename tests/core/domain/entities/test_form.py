@@ -40,13 +40,13 @@ def test_form_can_only_have_unique_fields(form) -> None:
         form.add_field(some_field)
 
 
-def test_required_fields_for_empty_form_are_also_empty(form, faker) -> None:
+def test_required_fields_for_empty_form_are_also_empty(form) -> None:
     required_fields = form.get_required_fields()
 
     assert required_fields == set()
 
 
-def test_required_fields_returns_only_required_fields(form, faker) -> None:
+def test_required_fields_returns_only_required_fields(form) -> None:
     required_field = Field.create()
     required_field.mark_required()
     not_required_field = Field.create()

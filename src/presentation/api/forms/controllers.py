@@ -9,3 +9,7 @@ def get_repository() -> IRepository:
 
 def list_all_forms_query_handler() -> handlers.ListFormsQueryHandler:
     return handlers.ListFormsQueryHandler(repository=get_repository())
+
+
+def get_form_query_handler() -> handlers.GetFormQueryHandler:
+    return handlers.GetFormQueryHandler(repository=get_repository())
