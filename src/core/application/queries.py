@@ -15,4 +15,3 @@ class ListAllFormsQuery(Query):
 
         class Config:
             from_attributes = True
-

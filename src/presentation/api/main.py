@@ -9,9 +9,9 @@ app = FastAPI(
 )
 
 
-@app.get('/healthcheck')
+@app.get("/healthcheck")
 def healthcheck() -> dict:
-    return {'status': 'ok'}
+    return {"status": "ok"}
 
 
 app.include_router(forms.router)

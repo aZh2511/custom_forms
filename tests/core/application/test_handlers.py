@@ -10,7 +10,9 @@ def handler(repository) -> ListFormsQueryHandler:
     return ListFormsQueryHandler(repository)
 
 
-async def test_list_all_forms_query_handler_returns_empty_list_when_no_saved_forms(handler) -> None:
+async def test_list_all_forms_query_handler_returns_empty_list_when_no_saved_forms(
+    handler,
+) -> None:
     query = ListAllFormsQuery()
 
     result = await handler.handle(query)
@@ -18,7 +20,9 @@ async def test_list_all_forms_query_handler_returns_empty_list_when_no_saved_for
     assert result == []
 
 
-async def test_list_all_forms_query_handler_returns_actual_forms(handler, repository) -> None:
+async def test_list_all_forms_query_handler_returns_actual_forms(
+    handler, repository
+) -> None:
     form1 = Form.create(title="form1")
     repository.save_form(form1)
     form2 = Form.create(title="form1")
@@ -26,7 +30,6 @@ async def test_list_all_forms_query_handler_returns_actual_forms(handler, reposi
     query = ListAllFormsQuery()
 
     result = await handler.handle(query)
-
 
     expected = [
         ListAllFormsQuery.ResultDTO.model_validate(form1),

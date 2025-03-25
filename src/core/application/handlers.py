@@ -21,7 +21,9 @@ class ListFormsQueryHandler(QueryHandler[queries.ListAllFormsQuery]):
     def __init__(self, repository: IRepository) -> None:
         self._repository = repository
 
-    async def handle(self, query: queries.ListAllFormsQuery) -> list[queries.ListAllFormsQuery.ResultDTO]:
+    async def handle(
+        self, query: queries.ListAllFormsQuery
+    ) -> list[queries.ListAllFormsQuery.ResultDTO]:
         all_forms = self._repository.get_all_forms()
         return [
             queries.ListAllFormsQuery.ResultDTO.model_validate(form)

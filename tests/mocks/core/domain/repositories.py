@@ -37,7 +37,7 @@ class TestsRepository(IRepository):
         self.add("form_response", form_response)
 
     def get_all_forms(self) -> set[Form]:
-        return self._tables['forms']
+        return self._tables["forms"]
 
     def save_form(self, form: Form) -> None:
         self.add("forms", form)
