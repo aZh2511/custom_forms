@@ -1,7 +1,7 @@
 import pytest
-from faker import Faker
+from tests.mocks.core.domain.repositories import TestsRepository
 
 
-@pytest.fixture
-def faker() -> Faker:
-    return Faker()
+@pytest.fixture()
+def repository() -> TestsRepository:
+    return TestsRepository()

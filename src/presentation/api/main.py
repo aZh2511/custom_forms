@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from presentation.api import forms
+
 
 app = FastAPI(
     title="Custom Forms",
@@ -10,3 +12,6 @@ app = FastAPI(
 @app.get('/healthcheck')
 def healthcheck() -> dict:
     return {'status': 'ok'}
+
+
+app.include_router(forms.router)
