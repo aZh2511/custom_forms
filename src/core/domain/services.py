@@ -1,10 +1,10 @@
 from core.domain.entities import FormResponse
-from core.domain.repositories import Repository
+from core.domain.repositories import IRepository
 from core.domain import exceptions
 
 
 class SubmitFormService:
-    def __init__(self, repository: Repository) -> None:
+    def __init__(self, repository: IRepository) -> None:
         self._repository = repository
 
     def submit(self, response: FormResponse) -> None:

@@ -2,7 +2,7 @@ from core.domain.entities import Form, FormResponse
 from core.domain.value_objects import FormUUID, FormResponseUUID
 
 
-class Repository:
+class IRepository:
     def get_form_by_uuid(self, form_uuid: FormUUID) -> Form | None:
         raise NotImplementedError
 

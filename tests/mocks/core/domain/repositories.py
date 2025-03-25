@@ -2,7 +2,7 @@ from uuid import UUID
 
 from core.domain.entities import Form, FormResponse
 from core.domain.entities.base import Aggregate
-from core.domain.repositories import Repository as IRepository
+from core.domain.repositories import IRepository
 from collections import defaultdict
 
 from core.domain.value_objects import FormUUID, FormResponseUUID
